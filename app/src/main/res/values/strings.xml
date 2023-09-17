@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Meet Me In Reality</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login_button">LOGIN</string>
+    <string name="register">Register</string>
+    <string name="register_btn">REGISTER</string>
+    <string name="click_to_login">Already have an Account? Login now</string>
+    <string name="click_to_register">Don\'t have an account? Register</string>
+    <string name="logout">Logout</string>
+</resources>
