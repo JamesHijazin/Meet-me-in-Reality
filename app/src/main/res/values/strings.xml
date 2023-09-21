@@ -9,4 +9,7 @@
     <string name="click_to_login">Already have an Account? Login now</string>
     <string name="click_to_register">Don\'t have an account? Register</string>
     <string name="logout">Logout</string>
+    <string name="meet_me_in_reality">Meet Me In Reality</string>
+    <string name="rmit_logo">RMIT LOGO</string>
+    <string name="profile_image">profile image</string>
 </resources>
