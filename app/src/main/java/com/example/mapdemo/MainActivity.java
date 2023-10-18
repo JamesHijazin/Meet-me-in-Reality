@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Please select a location in map", Toast.LENGTH_SHORT).show();
             }
         });
-        mapView.getMapboxMap().loadStyleUri("mapbox://styles/jameshijazin/clmrp1ef3003v01py7l785j12", new Style.OnStyleLoaded() {
+        mapView.getMapboxMap().loadStyleUri("mapbox://styles/jameshijazin/clnvkka0o000y01mv6sxc8dqr", new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
                 mapView.getMapboxMap().setCamera(new CameraOptions.Builder().zoom(20.0).build());
@@ -228,13 +228,13 @@ public class MainActivity extends AppCompatActivity {
                 PointAnnotationManager pointAnnotationManager = createPointAnnotationManager(annotationPlugin, mapView);
                 // test annotations
                 PointAnnotationOptions building80Anno = new PointAnnotationOptions().withTextAnchor(TextAnchor.CENTER).withIconImage(bitmap)
-                        .withPoint(Point.fromLngLat(144.962677, -37.808190));
+                        .withPoint(Point.fromLngLat(144.962677, -37.808190)).withTextField("Building 80").withTextColor("#FFFFFF");
                 pointAnnotationManager.create(building80Anno);
                 PointAnnotationOptions building8Anno = new PointAnnotationOptions().withTextAnchor(TextAnchor.CENTER).withIconImage(bitmap)
-                        .withPoint(Point.fromLngLat(144.963867, -37.808574));
+                        .withPoint(Point.fromLngLat(144.963867, -37.808574)).withTextField("Building 8").withTextColor("#FFFFFF");
                 pointAnnotationManager.create(building8Anno);
                 PointAnnotationOptions building91Anno = new PointAnnotationOptions().withTextAnchor(TextAnchor.CENTER).withIconImage(bitmap)
-                        .withPoint(Point.fromLngLat(144.963636, -37.806360));
+                        .withPoint(Point.fromLngLat(144.963636, -37.806360)).withTextField("Building 91").withTextColor("#FFFFFF");
                 pointAnnotationManager.create(building91Anno);
                 List<PointAnnotation> userAnnotations = new ArrayList<>();
 
