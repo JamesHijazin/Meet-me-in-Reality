@@ -1,4 +1,4 @@
-package com.example.meetmeinreality;
+package com.example.BaseApplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;

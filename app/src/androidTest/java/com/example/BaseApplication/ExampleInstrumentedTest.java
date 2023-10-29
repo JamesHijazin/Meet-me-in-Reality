@@ -1,4 +1,4 @@
-package com.example.meetmeinreality;
+package com.example.BaseApplication;
 
 import android.content.Context;
 

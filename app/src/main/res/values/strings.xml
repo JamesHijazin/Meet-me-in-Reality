@@ -13,4 +13,5 @@
     <string name="login_button" />
     <string name="click_to_register" />
     <string name="register" />
+    <string name="name">meetmeinreality</string>
 </resources>
