@@ -1,7 +1,17 @@
 package com.example.meetmeinreality;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.Toast;
+
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 
@@ -29,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
 
     private Marker marker;
-    double landmarkLatitude = 37.8102;
-    double landmarkLongitude = 144.9628;
+//    double landmarkLatitude = 37.8102;
+//    double landmarkLongitude = 144.9628;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +79,36 @@ public class MainActivity extends AppCompatActivity {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
         if (mapFragment != null) {
             mapFragment.getMapAsync(new OnMapReadyCallback() {
+
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
+                    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        googleMap.setMyLocationEnabled(true);
+//                        googleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
+//                            @Override
+//                            public boolean onMyLocationButtonClick() {
+//                                return false;
+//                            }
+//                        });
+//                        googleMap.setOnMyLocationClickListener(new GoogleMap.OnMyLocationClickListener() {
+//                            @Override
+//                            public void onMyLocationClick(@NonNull Location location) {
+//
+//                            }
+//                        });
+
+                    } else {
+                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+                    }
+
                     // Add markers and configure the map here
-                    LatLng landmarkLocation = new LatLng(landmarkLatitude, landmarkLongitude);
+                    LatLng landmarkLocation = new LatLng(-37.808190, 144.962677);
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(landmarkLocation)
-                            .title("Landmark Name")
+                            .title("Building 80")
                             .draggable(true); // Make the marker draggable
 
-                    Marker marker = googleMap.addMarker(markerOptions);
+                    googleMap.addMarker(markerOptions);
 
                     // Set an OnMarkerClickListener to handle marker interactions
                     googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -113,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     private void showCustomMarkerDialog(final Marker marker) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Location Information");
-        builder.setMessage("Have you found this location");
+        builder.setMessage("Have you found this location?");
 
         builder.setPositiveButton("Found Location", new DialogInterface.OnClickListener() {
             @Override
@@ -136,5 +169,4 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
 }
