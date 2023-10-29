@@ -29,8 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".splash_opening_3_activity" />
-        <!-- Declare SplashOpening3Activity -->
+        <activity android:name=".DiscoverActivity" />
+
         <activity android:name=".HomeActivity" />
 
 
