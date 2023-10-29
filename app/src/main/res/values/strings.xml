@@ -2,4 +2,15 @@
     <string name="app_name">BaseApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logout" />
+    <string name="register_btn" />
+    <string name="click_to_login" />
+    <string name="meet_me_in_reality" />
+    <string name="rmit_logo" />
+    <string name="login" />
+    <string name="email" />
+    <string name="password" />
+    <string name="login_button" />
+    <string name="click_to_register" />
+    <string name="register" />
 </resources>
