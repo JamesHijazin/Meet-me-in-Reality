@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "260995436628",
+    "project_id": "meet-me-in-reality",
+    "storage_bucket": "meet-me-in-reality.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260995436628:android:edc9f06ddeffcbaa509dc1",
+        "android_client_info": {
+          "package_name": "com.example.BaseApplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzoNoQgUEsJnD9WUsfb9mEA4SDW2JEMac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260995436628:android:b319fda14a1bdfb7509dc1",
+        "android_client_info": {
+          "package_name": "com.example.login_register_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzoNoQgUEsJnD9WUsfb9mEA4SDW2JEMac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260995436628:android:3f39a9907054d55b509dc1",
+        "android_client_info": {
+          "package_name": "com.example.meetmeinreality"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzoNoQgUEsJnD9WUsfb9mEA4SDW2JEMac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
