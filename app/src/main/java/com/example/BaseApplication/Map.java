@@ -33,6 +33,7 @@ public class Map extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // This gets current logged in user
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
@@ -57,6 +58,8 @@ public class Map extends AppCompatActivity {
                 finish();
             }
         });
+
+        // Ignore All below, all done in main
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
         if (mapFragment != null) {

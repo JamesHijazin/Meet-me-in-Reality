@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.meetmeinreality"
+    namespace = "com.example.BaseApplication"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.meetmeinreality"
+        applicationId = "com.example.BaseApplication"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
