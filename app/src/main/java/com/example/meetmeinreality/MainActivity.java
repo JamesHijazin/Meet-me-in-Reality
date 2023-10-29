@@ -29,7 +29,8 @@ import android.content.DialogInterface;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,11 +41,35 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     FirebaseUser user;
 
+    Button btn_scan;
+
     private Marker marker;
 //    double landmarkLatitude = 37.8102;
 //    double landmarkLongitude = 144.9628;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
+    private void scanCode() {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Volume up to flash on");
+        options.setBeepEnabled(true);
+        options.setOrientationLocked(true);
+        options.setCaptureActivity(CaptureAct.class);
+        barLauncher.launch(options);
+    }
+
+    ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
+        if (result.getContents() != null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("Result");
+            builder.setMessage(result.getContents());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            }).show();
+        }
+    });
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -102,10 +127,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     // Add markers and configure the map here
-                    LatLng landmarkLocation = new LatLng(-37.808190, 144.962677);
+                    LatLng landmarkLocation = new LatLng(-37.805463, 144.965654);
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(landmarkLocation)
-                            .title("Building 80")
+                            .title("Building 57: EJ CAFE")
                             .draggable(true); // Make the marker draggable
 
                     googleMap.addMarker(markerOptions);
@@ -151,6 +176,15 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("Found Location", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                // this doesn't work, but doesn't crash (needs scan button)
+//                btn_scan = findViewById(R.id.btn_scan);
+//                btn_scan.setOnClickListener(v ->
+//                {
+//                    scanCode();
+//                });
+                // crashes here
+                // maybe send user to separate screen to press 'scan' button, like in qr scanner demo?
+                scanCode();
                 if (marker != null) {
 
                     marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
