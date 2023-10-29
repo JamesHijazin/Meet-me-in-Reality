@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MeetMeReality</string>
+    <string name="logo_content_description"> Discover More</string>
+    <string name="friends_image_description"> Hello</string>
+</resources>
